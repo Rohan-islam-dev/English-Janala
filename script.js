@@ -2,6 +2,11 @@ const createElement = (arry) => {
   const htmlElement = arry.map((el) => `<span class="btn">${el}</span>`);
   return htmlElement.join(" ");
 };
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
 
 const manageSpinner = (status) => {
   if (status == true) {
@@ -132,7 +137,7 @@ const displayLevelWord = (words) => {
             <button onclick="loadWordDetail(${
               word.id
             })" class="bg-[#1A91FF10] p-3 hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info text-xl"></i></button>
-            <button class="bg-[#1A91FF10] p-3 hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high text-xl"></i></button>
+            <button onclick="pronounceWord('${word.word}')" class="bg-[#1A91FF10] p-3 hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high text-xl"></i></button>
           </div>
          </div> 
         `;
