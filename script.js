@@ -102,6 +102,7 @@ const displayLevelWord = (words) => {
             <h2 class="font-bold text-4xl">নেক্সট Lesson এ যান</h2>
           </div>
       `;
+      manageSpinner(false)
     return;
   }
   //   {
